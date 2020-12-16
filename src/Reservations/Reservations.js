@@ -12,6 +12,7 @@ const Reservations = (props) => {
                 date={resy.date}
                 time={resy.time}
                 number={resy.number}
+                cancelReservation={props.cancelReservation}
             />
         )
     })

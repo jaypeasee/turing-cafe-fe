@@ -32,7 +32,7 @@ class App extends Component {
 
   cancelReservation = (resyID) => {
     this.setState({
-      reservations: this.state.reservations(resy => {
+      reservations: this.state.reservations.filter(resy => {
         return resy.id !== resyID
       })
     })
