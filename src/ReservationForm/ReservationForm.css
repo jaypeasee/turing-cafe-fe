@@ -1,0 +1,9 @@
+.resy-form {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.resy-form-input, .resy-form-btn {
+    margin: 2%;
+}
