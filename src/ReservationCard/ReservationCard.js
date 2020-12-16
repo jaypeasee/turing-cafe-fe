@@ -15,6 +15,7 @@ const ReservationCard = (props) => {
             <button
                 className="cancel-btn"
                 onClick={() => cancelReservation(id)}
+                data-testid={`cancel ${id}`}
             >Cancel</button>
         </section>
     )
