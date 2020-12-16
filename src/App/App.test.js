@@ -8,11 +8,6 @@ jest.mock('../apiCalls')
 
 describe("App", () => {
   let mockReservations
-  let nameInput
-  let dateInput
-  let timeInput
-  let numberInput
-  let submitBtn
 
   beforeEach(() => {
     mockReservations = [
@@ -40,12 +35,6 @@ describe("App", () => {
     ]
     getAllReservations.mockResolvedValueOnce(mockReservations)
     render(<App />)
-    Date.now = jest.fn().mockImplementation(() => 666)
-    nameInput = screen.getByPlaceholderText("Name")
-    dateInput = screen.getByPlaceholderText("Date")
-    timeInput = screen.getByPlaceholderText("Time")
-    numberInput = screen.getByPlaceholderText("Number of Guests")
-    submitBtn = screen.getByText("Make Reservation")
   })
 
   it('should load pre-existing reservations when the component renders', async () => {
@@ -59,11 +48,18 @@ describe("App", () => {
   })
 
   it('should have a new reservation show on the page after creating one in the form', () => {
+    Date.now = jest.fn().mockImplementation(() => 666)
+    const nameInput = screen.getByPlaceholderText("Name")
+    const dateInput = screen.getByPlaceholderText("Date")
+    const timeInput = screen.getByPlaceholderText("Time")
+    const numberInput = screen.getByPlaceholderText("Number of Guests")
+    const submitBtn = screen.getByText("Make Reservation")
+
     userEvent.type(nameInput, "Remus Lupin")
     userEvent.type(dateInput, "10/31")
     userEvent.type(timeInput, "6:30")
     userEvent.type(numberInput, "1")
-        
+
     userEvent.click(submitBtn)
 
     expect(screen.getByText("Remus Lupin")).toBeInTheDocument()
@@ -76,7 +72,7 @@ describe("App", () => {
     expect(christie).toBeInTheDocument()
 
     userEvent.click(christieCancelBtn)
-
+    
     expect(christie).not.toBeInTheDocument()
   })
 })
