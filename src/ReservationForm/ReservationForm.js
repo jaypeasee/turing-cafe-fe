@@ -18,6 +18,19 @@ class ReservationForm extends Component {
         })
     }
 
+    createNewResy = (event) => {
+        event.preventDefault()
+        const {name, date, time, number} = this.state;
+        const newResy = {
+            id: Date.now(),
+            name,
+            date,
+            time,
+            number: parseInt(number)
+        }
+        console.log(newResy)
+    }
+
     render() {
         return (
             <form className="resy-form">
@@ -49,6 +62,10 @@ class ReservationForm extends Component {
                 value={this.state.number}
                 onChange={this.updateInput}
             />
+            <button
+                className="resy-form-btn"
+                onClick={this.createNewResy}
+            >Make Reservation</button>
         </form>
         )
     }
