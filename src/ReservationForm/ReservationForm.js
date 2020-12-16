@@ -13,7 +13,9 @@ class ReservationForm extends Component {
     }
 
     updateInput = (event) => {
-
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
 
     render() {
