@@ -30,6 +30,14 @@ class App extends Component {
     })
   }
 
+  cancelReservation = (resyID) => {
+    this.setState({
+      reservations: this.state.reservations(resy => {
+        return resy.id !== resyID
+      })
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -42,6 +50,7 @@ class App extends Component {
         <div className='resy-container'>
           <Reservations 
             reservations={this.state.reservations}
+            cancelReservation={this.cancelReservation}
           />
         </div>
       </div>
