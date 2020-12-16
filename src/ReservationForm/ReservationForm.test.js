@@ -19,4 +19,12 @@ describe('ReservationForm', () => {
         numberInput = screen.getByPlaceholderText("Number of Guests")
         submitBtn = screen.getByText("Make Reservation")
     })
+
+    it('should have 4 inputs and a button', () => {
+        expect(nameInput).toBeInTheDocument()
+        expect(dateInput).toBeInTheDocument()
+        expect(timeInput).toBeInTheDocument()
+        expect(numberInput).toBeInTheDocument()
+        expect(submitBtn).toBeInTheDocument()
+    })
 })
