@@ -15,7 +15,7 @@ const Reservations = (props) => {
         )
     })
     return (
-        <section className="resy-card">
+        <section className="resy-cards">
             {reservationCards}
         </section>
     )

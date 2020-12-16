@@ -12,6 +12,7 @@ const ReservationCard = (props) => {
             <p>{date}</p>
             <p>{time}</p>
             <p>{number}</p>
+            <button>Cancel</button>
         </section>
     )
 }
