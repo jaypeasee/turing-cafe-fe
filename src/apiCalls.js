@@ -3,7 +3,7 @@ const getAllReservations = () => {
         .then(response => response.json())
 }
 
-const postNewReservation = (newReservation) => {
+const postReservation = (newReservation) => {
     return fetch('http://localhost:3001/api/v1/reservations', {
         method: 'POST',
         headers: {
@@ -11,8 +11,18 @@ const postNewReservation = (newReservation) => {
         },
         body: JSON.stringify(newReservation)
     })
-        .then(response => response.json)
+        .then(response => response.json())
     
 }
 
-export {getAllReservations, postNewReservation}
+const deleteReservation = (reservationID) => {
+    return fetch(`http://localhost:3001/api/v1/reservations/${reservationID}`, {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+}
+
+export {getAllReservations, postReservation, deleteReservation}

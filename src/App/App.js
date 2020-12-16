@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Reservations from '../Reservations/Reservations'
 import ReservationForm from '../ReservationForm/ReservationForm'
-import {getAllReservations, postNewReservation} from '../apiCalls.js'
+import {deleteReservation, getAllReservations, postReservation} from '../apiCalls.js'
 
 class App extends Component {
   constructor() {
@@ -24,13 +24,14 @@ class App extends Component {
   }
 
   makeReservation = (newResy) => {
-    postNewReservation(newResy)
+    postReservation(newResy)
     this.setState({
       reservations: [...this.state.reservations, newResy]
     })
   }
 
   cancelReservation = (resyID) => {
+    deleteReservation(resyID)
     this.setState({
       reservations: this.state.reservations.filter(resy => {
         return resy.id !== resyID
