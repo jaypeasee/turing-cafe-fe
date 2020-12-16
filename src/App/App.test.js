@@ -70,6 +70,13 @@ describe("App", () => {
   })
 
   it('should be able to cancel reservations', async () => {
-    
+    const christie = await waitFor(() => screen.getByText("Christie"))
+    const christieCancelBtn = await waitFor(() => screen.getByTestId("cancel 1"))
+
+    expect(christie).toBeInTheDocument()
+
+    userEvent.click(christieCancelBtn)
+
+    expect(christie).not.toBeInTheDocument()
   })
 })
