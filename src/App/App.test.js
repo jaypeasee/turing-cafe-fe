@@ -1,8 +1,10 @@
 import React from 'react';
 import App from './App';
 import '@testing-library/jest-dom'
-import {render, screen} from '@testing-library/react'
+import {render, screen, waitFor} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import {getAllReservations} from '../apiCalls'
+jest.mock('../apiCalls')
 
 describe("App", () => {
   it('should have a new reservation show on the page after creating one in the form', () => {
@@ -24,6 +26,34 @@ describe("App", () => {
 
     expect(screen.getByTestId("666")).toBeInTheDocument()
     expect(screen.getByText("Remus Lupin")).toBeInTheDocument()
+
+  })
+
+  it('should load pre-existing reservations when the component renders', () => {
+    const mockReservations = [
+      {
+        id: 1,
+        name: 'Christie',
+        date: '12/29',
+        time: '7:00',
+        number: 12,
+      },
+      {
+        id: 2,
+        name: 'Leta',
+        date: '4/5',
+        time: '7:00',
+        number: 2,
+      },
+      {
+        id: 3,
+        name: 'Pam',
+        date: '1/21',
+        time: '6:00',
+        number: 4,
+      }
+    ]
+
 
   })
 })
