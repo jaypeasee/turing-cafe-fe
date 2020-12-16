@@ -28,7 +28,7 @@ class ReservationForm extends Component {
             time,
             number: parseInt(number)
         }
-        
+        this.props.makeReservation(newResy)
     }
 
     render() {
