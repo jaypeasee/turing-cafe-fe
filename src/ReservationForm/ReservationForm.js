@@ -28,7 +28,7 @@ class ReservationForm extends Component {
             time,
             number: parseInt(number)
         }
-        console.log(newResy)
+        
     }
 
     render() {

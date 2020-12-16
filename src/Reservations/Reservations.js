@@ -6,6 +6,7 @@ const Reservations = (props) => {
     const reservationCards = props.reservations.map(resy => {
         return (
             <ReservationCard 
+                key={resy.id}
                 id={resy.id}
                 name={resy.name}
                 date={resy.date}
