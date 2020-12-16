@@ -13,6 +13,7 @@ const ReservationCard = (props) => {
             <p>{time}</p>
             <p>{number}</p>
             <button
+                className="cancel-btn"
                 onClick={() => cancelReservation(id)}
             >Cancel</button>
         </section>

@@ -3,4 +3,13 @@
     width: 22%;
     margin: 3%;
     padding: 2%;
+    border: solid 5px teal;
+    color: teal;
+}
+
+.cancel-btn {
+    background-color: teal;
+    color: white;
+    width: 60%;
+    height: 30px;
 }
